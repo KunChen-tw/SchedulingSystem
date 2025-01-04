@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace 排班系統
 {
-    public partial class Form4 : Form
+    public partial class frmAddEmployee : Form
     {
-        public Form4()
+        public frmAddEmployee()
         {
             InitializeComponent();
         }

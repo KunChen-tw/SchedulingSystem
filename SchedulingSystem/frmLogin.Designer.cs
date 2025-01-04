@@ -67,6 +67,7 @@
             txtPassword.PlaceholderText = "請輸入密碼";
             txtPassword.Size = new Size(144, 23);
             txtPassword.TabIndex = 4;
+            txtPassword.Text = "123";
             // 
             // title_lbl
             // 
@@ -89,6 +90,7 @@
             txtAccount.PlaceholderText = "請輸入帳號";
             txtAccount.Size = new Size(144, 23);
             txtAccount.TabIndex = 9;
+            txtAccount.Text = "aaa";
             // 
             // acc_btn
             // 

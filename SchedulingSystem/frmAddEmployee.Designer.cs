@@ -1,6 +1,6 @@
 ﻿namespace 排班系統
 {
-    partial class Form4
+    partial class frmAddEmployee
     {
         /// <summary>
         /// Required designer variable.

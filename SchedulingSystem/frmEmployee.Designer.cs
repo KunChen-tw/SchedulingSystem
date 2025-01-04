@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            ListViewItem listViewItem2 = new ListViewItem(new string[] { "AAA", "BBB", "CCC" }, -1);
+            ListViewItem listViewItem1 = new ListViewItem(new string[] { "AAA", "BBB", "CCC" }, -1);
             pnlEmployeeTools = new Panel();
             button1 = new Button();
             lvEmployee = new ListView();
@@ -44,7 +44,7 @@
             pnlEmployeeTools.Dock = DockStyle.Top;
             pnlEmployeeTools.Location = new Point(0, 0);
             pnlEmployeeTools.Name = "pnlEmployeeTools";
-            pnlEmployeeTools.Size = new Size(800, 71);
+            pnlEmployeeTools.Size = new Size(307, 71);
             pnlEmployeeTools.TabIndex = 1;
             // 
             // button1
@@ -60,10 +60,10 @@
             // 
             lvEmployee.Columns.AddRange(new ColumnHeader[] { columnHeader1, columnHeader2, columnHeader3 });
             lvEmployee.Dock = DockStyle.Fill;
-            lvEmployee.Items.AddRange(new ListViewItem[] { listViewItem2 });
+            lvEmployee.Items.AddRange(new ListViewItem[] { listViewItem1 });
             lvEmployee.Location = new Point(0, 71);
             lvEmployee.Name = "lvEmployee";
-            lvEmployee.Size = new Size(800, 379);
+            lvEmployee.Size = new Size(307, 190);
             lvEmployee.TabIndex = 2;
             lvEmployee.UseCompatibleStateImageBehavior = false;
             lvEmployee.View = View.Details;
@@ -84,7 +84,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(307, 261);
             Controls.Add(lvEmployee);
             Controls.Add(pnlEmployeeTools);
             Name = "frmEmployee";

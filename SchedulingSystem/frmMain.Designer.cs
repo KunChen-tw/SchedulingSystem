@@ -34,15 +34,8 @@
             tsmiEmployee = new ToolStripMenuItem();
             tsmiQueryEmployee = new ToolStripMenuItem();
             tsmiHelp = new ToolStripMenuItem();
-            listView1 = new ListView();
-            columnHeader1 = new ColumnHeader();
-            columnHeader2 = new ColumnHeader();
-            columnHeader3 = new ColumnHeader();
-            columnHeader4 = new ColumnHeader();
-            columnHeader5 = new ColumnHeader();
-            columnHeader6 = new ColumnHeader();
-            columnHeader7 = new ColumnHeader();
-            columnHeader8 = new ColumnHeader();
+            pnlTools = new Panel();
+            pnlCalendar = new Panel();
             mnsMain.SuspendLayout();
             SuspendLayout();
             // 
@@ -82,62 +75,29 @@
             tsmiHelp.Size = new Size(60, 20);
             tsmiHelp.Text = "說明(&H)";
             // 
-            // listView1
+            // pnlTools
             // 
-            listView1.Columns.AddRange(new ColumnHeader[] { columnHeader1, columnHeader2, columnHeader3, columnHeader4, columnHeader5, columnHeader6, columnHeader7, columnHeader8 });
-            listView1.Font = new Font("微軟正黑體", 12F, FontStyle.Regular, GraphicsUnit.Point, 136);
-            listView1.Location = new Point(25, 49);
-            listView1.Name = "listView1";
-            listView1.Size = new Size(733, 357);
-            listView1.TabIndex = 1;
-            listView1.UseCompatibleStateImageBehavior = false;
-            listView1.View = View.Details;
+            pnlTools.Dock = DockStyle.Top;
+            pnlTools.Location = new Point(0, 24);
+            pnlTools.Name = "pnlTools";
+            pnlTools.Size = new Size(800, 57);
+            pnlTools.TabIndex = 1;
             // 
-            // columnHeader1
+            // pnlCalendar
             // 
-            columnHeader1.Text = "員工姓名";
-            // 
-            // columnHeader2
-            // 
-            columnHeader2.Text = "SUN";
-            columnHeader2.TextAlign = HorizontalAlignment.Center;
-            // 
-            // columnHeader3
-            // 
-            columnHeader3.Text = "MON";
-            columnHeader3.TextAlign = HorizontalAlignment.Center;
-            // 
-            // columnHeader4
-            // 
-            columnHeader4.Text = "TUE";
-            columnHeader4.TextAlign = HorizontalAlignment.Center;
-            // 
-            // columnHeader5
-            // 
-            columnHeader5.Text = "WED";
-            columnHeader5.TextAlign = HorizontalAlignment.Center;
-            // 
-            // columnHeader6
-            // 
-            columnHeader6.Text = "THU";
-            columnHeader6.TextAlign = HorizontalAlignment.Center;
-            // 
-            // columnHeader7
-            // 
-            columnHeader7.Text = "FRI";
-            columnHeader7.TextAlign = HorizontalAlignment.Center;
-            // 
-            // columnHeader8
-            // 
-            columnHeader8.Text = "SAT";
-            columnHeader8.TextAlign = HorizontalAlignment.Center;
+            pnlCalendar.Dock = DockStyle.Fill;
+            pnlCalendar.Location = new Point(0, 81);
+            pnlCalendar.Name = "pnlCalendar";
+            pnlCalendar.Size = new Size(800, 369);
+            pnlCalendar.TabIndex = 2;
             // 
             // frmMain
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
-            Controls.Add(listView1);
+            Controls.Add(pnlCalendar);
+            Controls.Add(pnlTools);
             Controls.Add(mnsMain);
             MainMenuStrip = mnsMain;
             Name = "frmMain";
@@ -157,15 +117,8 @@
         private ToolStripMenuItem tsmiHelp;
         private ToolStripMenuItem tsmiEmployee;
         private ToolStripMenuItem tsmiQueryEmployee;
-        private ListView listView1;
-        private ColumnHeader columnHeader1;
-        private ColumnHeader columnHeader2;
-        private ColumnHeader columnHeader3;
-        private ColumnHeader columnHeader4;
-        private ColumnHeader columnHeader5;
-        private ColumnHeader columnHeader6;
-        private ColumnHeader columnHeader7;
-        private ColumnHeader columnHeader8;
+        private Panel pnlTools;
+        private Panel pnlCalendar;
     }
 
 }
