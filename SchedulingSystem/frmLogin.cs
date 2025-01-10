@@ -28,29 +28,24 @@ namespace SchedulingSystem
 
             if (!hasEmployee)
             {
-                MessageBox.Show($"查無此帳號");
+                MessageBox.Show($"查無此帳號", "錯誤", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
                 Employee employee = employees.Login(strAccount, strPassword);
                 if (employee == null)
                 {
-                    MessageBox.Show($"登入失敗");
+                    MessageBox.Show($"登入失敗", "錯誤", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 else
                 {
-                    MessageBox.Show($"歡迎 {employee.Name} 登入");
+                    string employeeType = employee.Level == 1 ? "店長" : "員工";
+                    MessageBox.Show($"歡迎 {employeeType} {employee.Name} 登入", "成功", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
                     DialogResult = DialogResult.OK;
-                    this.employee = employee; 
+                    this.employee = employee;
                 }
             }
-
-            
-        }
-
-        private void frmLogin_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }

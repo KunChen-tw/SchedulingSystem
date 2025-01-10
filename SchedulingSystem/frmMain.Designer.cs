@@ -1,4 +1,6 @@
-﻿namespace SchedulingSystem
+﻿using CalendarControlLibrary;
+
+namespace SchedulingSystem
 {
 
     partial class frmMain
@@ -35,8 +37,19 @@
             tsmiQueryEmployee = new ToolStripMenuItem();
             tsmiHelp = new ToolStripMenuItem();
             pnlTools = new Panel();
+            btnNextMonth = new Button();
+            btnLastMonth = new Button();
+            grpEmployeeInfo = new GroupBox();
+            lblEmployeeJobGTitle = new Label();
+            lblEmployeeJobGTitleLabel = new Label();
+            lblEmployeeName = new Label();
+            lblEmployeeNameLabel = new Label();
             pnlCalendar = new Panel();
+            calMain = new CalendarControl();
             mnsMain.SuspendLayout();
+            pnlTools.SuspendLayout();
+            grpEmployeeInfo.SuspendLayout();
+            pnlCalendar.SuspendLayout();
             SuspendLayout();
             // 
             // mnsMain
@@ -77,19 +90,108 @@
             // 
             // pnlTools
             // 
+            pnlTools.Controls.Add(btnNextMonth);
+            pnlTools.Controls.Add(btnLastMonth);
+            pnlTools.Controls.Add(grpEmployeeInfo);
             pnlTools.Dock = DockStyle.Top;
             pnlTools.Location = new Point(0, 24);
             pnlTools.Name = "pnlTools";
             pnlTools.Size = new Size(800, 57);
             pnlTools.TabIndex = 1;
             // 
+            // btnNextMonth
+            // 
+            btnNextMonth.Font = new Font("微軟正黑體", 12F, FontStyle.Bold, GraphicsUnit.Point, 136);
+            btnNextMonth.Location = new Point(635, 13);
+            btnNextMonth.Name = "btnNextMonth";
+            btnNextMonth.Size = new Size(75, 33);
+            btnNextMonth.TabIndex = 6;
+            btnNextMonth.Text = "下個月";
+            btnNextMonth.UseVisualStyleBackColor = true;
+            btnNextMonth.Click += btnNextMonth_Click;
+            // 
+            // btnLastMonth
+            // 
+            btnLastMonth.Font = new Font("微軟正黑體", 12F, FontStyle.Bold, GraphicsUnit.Point, 136);
+            btnLastMonth.Location = new Point(554, 13);
+            btnLastMonth.Name = "btnLastMonth";
+            btnLastMonth.Size = new Size(75, 33);
+            btnLastMonth.TabIndex = 5;
+            btnLastMonth.Text = "上個月";
+            btnLastMonth.UseVisualStyleBackColor = true;
+            btnLastMonth.Click += btnLastMonth_Click;
+            // 
+            // grpEmployeeInfo
+            // 
+            grpEmployeeInfo.Controls.Add(lblEmployeeJobGTitle);
+            grpEmployeeInfo.Controls.Add(lblEmployeeJobGTitleLabel);
+            grpEmployeeInfo.Controls.Add(lblEmployeeName);
+            grpEmployeeInfo.Controls.Add(lblEmployeeNameLabel);
+            grpEmployeeInfo.Dock = DockStyle.Left;
+            grpEmployeeInfo.Location = new Point(0, 0);
+            grpEmployeeInfo.Name = "grpEmployeeInfo";
+            grpEmployeeInfo.Size = new Size(293, 57);
+            grpEmployeeInfo.TabIndex = 4;
+            grpEmployeeInfo.TabStop = false;
+            grpEmployeeInfo.Text = "職員訊息";
+            // 
+            // lblEmployeeJobGTitle
+            // 
+            lblEmployeeJobGTitle.AutoSize = true;
+            lblEmployeeJobGTitle.Font = new Font("微軟正黑體", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 136);
+            lblEmployeeJobGTitle.Location = new Point(73, 22);
+            lblEmployeeJobGTitle.Name = "lblEmployeeJobGTitle";
+            lblEmployeeJobGTitle.Size = new Size(48, 24);
+            lblEmployeeJobGTitle.TabIndex = 7;
+            lblEmployeeJobGTitle.Text = "職員";
+            // 
+            // lblEmployeeJobGTitleLabel
+            // 
+            lblEmployeeJobGTitleLabel.AutoSize = true;
+            lblEmployeeJobGTitleLabel.Font = new Font("微軟正黑體", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 136);
+            lblEmployeeJobGTitleLabel.Location = new Point(10, 22);
+            lblEmployeeJobGTitleLabel.Name = "lblEmployeeJobGTitleLabel";
+            lblEmployeeJobGTitleLabel.Size = new Size(67, 24);
+            lblEmployeeJobGTitleLabel.TabIndex = 6;
+            lblEmployeeJobGTitleLabel.Text = "職稱：";
+            // 
+            // lblEmployeeName
+            // 
+            lblEmployeeName.AutoSize = true;
+            lblEmployeeName.Font = new Font("微軟正黑體", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 136);
+            lblEmployeeName.Location = new Point(200, 22);
+            lblEmployeeName.Name = "lblEmployeeName";
+            lblEmployeeName.Size = new Size(48, 24);
+            lblEmployeeName.TabIndex = 5;
+            lblEmployeeName.Text = "張三";
+            // 
+            // lblEmployeeNameLabel
+            // 
+            lblEmployeeNameLabel.AutoSize = true;
+            lblEmployeeNameLabel.Font = new Font("微軟正黑體", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 136);
+            lblEmployeeNameLabel.Location = new Point(137, 22);
+            lblEmployeeNameLabel.Name = "lblEmployeeNameLabel";
+            lblEmployeeNameLabel.Size = new Size(67, 24);
+            lblEmployeeNameLabel.TabIndex = 4;
+            lblEmployeeNameLabel.Text = "姓名：";
+            // 
             // pnlCalendar
             // 
+            pnlCalendar.Controls.Add(calMain);
             pnlCalendar.Dock = DockStyle.Fill;
             pnlCalendar.Location = new Point(0, 81);
             pnlCalendar.Name = "pnlCalendar";
             pnlCalendar.Size = new Size(800, 369);
             pnlCalendar.TabIndex = 2;
+            // 
+            // calMain
+            // 
+            calMain.Dock = DockStyle.Fill;
+            calMain.Location = new Point(0, 0);
+            calMain.Name = "calMain";
+            calMain.Size = new Size(800, 369);
+            calMain.TabIndex = 0;
+            calMain.DateClicked += calMain_DateClicked;
             // 
             // frmMain
             // 
@@ -106,6 +208,10 @@
             Load += frmMain_Load;
             mnsMain.ResumeLayout(false);
             mnsMain.PerformLayout();
+            pnlTools.ResumeLayout(false);
+            grpEmployeeInfo.ResumeLayout(false);
+            grpEmployeeInfo.PerformLayout();
+            pnlCalendar.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();
         }
@@ -119,6 +225,14 @@
         private ToolStripMenuItem tsmiQueryEmployee;
         private Panel pnlTools;
         private Panel pnlCalendar;
+        private CalendarControlLibrary.CalendarControl calMain;
+        private GroupBox grpEmployeeInfo;
+        private Label lblEmployeeJobGTitle;
+        private Label lblEmployeeJobGTitleLabel;
+        private Label lblEmployeeName;
+        private Label lblEmployeeNameLabel;
+        private Button btnNextMonth;
+        private Button btnLastMonth;
     }
 
 }

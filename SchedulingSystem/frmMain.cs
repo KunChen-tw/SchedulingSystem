@@ -1,15 +1,17 @@
+
+
+using CalendarControlLibrary;
+
 namespace SchedulingSystem
 {
     public partial class frmMain : Form
     {
         EmployeeCollection employees = new EmployeeCollection();
-        //private Panel pnlCalendar;
-        private CalendarControl calendarControl;
+        private Employee currentEmployee; // 新增的私有變數
 
         public frmMain()
         {
             InitializeComponent();
-            InitializeCalendarPanel();
         }
 
         private void frmMain_Load(object sender, EventArgs e)
@@ -20,10 +22,21 @@ namespace SchedulingSystem
             frmLogin.employees = employees;
             if (frmLogin.ShowDialog(this) == DialogResult.OK)
             {
-                if (frmLogin.employee.Level == 1)
+                currentEmployee = frmLogin.employee; // 設定現在登入的員工
+                if (currentEmployee.Level == 1)
                 {
                     this.tsmiEmployee.Visible = true;
+                    this.lblEmployeeJobGTitle.Text = "店長";
                 }
+                else
+                {
+                    this.tsmiEmployee.Visible = false;
+                    this.lblEmployeeJobGTitle.Text = "員工";
+                }
+
+                // 顯示登入員工的姓名
+                lblEmployeeName.Text = currentEmployee.Name;
+
             }
             else
             {
@@ -57,21 +70,23 @@ namespace SchedulingSystem
             frmEmployee.ShowDialog(this);
         }
 
-        private void InitializeCalendarPanel()
+        private void calMain_DateClicked(object sender, DateTime e)
         {
-            //pnlCalendar = new Panel
-            //{
-            //    Location = new Point(10, 50),
-            //    Size = new Size(this.ClientSize.Width - 20, this.ClientSize.Height - 60),
-            //    Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right
-            //};
-            //this.Controls.Add(pnlCalendar);
+            // 處理日期點擊事件
+            //MessageBox.Show($"您點擊了日期: {e.ToShortDateString()}");
+            frmDayShift frmDayShift = new frmDayShift();
+            frmDayShift.selectTime = e;
+            frmDayShift.ShowDialog(this);
+        }
 
-            calendarControl = new CalendarControl
-            {
-                Dock = DockStyle.Fill
-            };
-            pnlCalendar.Controls.Add(calendarControl);
+        private void btnNextMonth_Click(object sender, EventArgs e)
+        {
+            this.calMain.NextMonth();
+        }
+
+        private void btnLastMonth_Click(object sender, EventArgs e)
+        {
+            this.calMain.LastMonth();
         }
     }
 
